@@ -5,4 +5,6 @@
 #   gem 'sqlite3'
 #
 development:
+  encoding: utf8
   adapter: postgresql
+  database: pestulon_development
