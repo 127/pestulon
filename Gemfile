@@ -66,4 +66,4 @@ gem 'simple_form' #, github: 'elsurudo/simple_form', branch: 'rails-5.1.0'
 
 gem 'recaptcha', :require => 'recaptcha/rails'
 
-gem 'russian' #i18n dependency for ru.locale
+# gem 'russian' #i18n dependency for ru.locale
