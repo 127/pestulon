@@ -10,19 +10,19 @@ end
 
 unless Rails.env.production?
   users     = ['mamyashev.marat@gmail.com', 'a@b.ru', 'b@b.ru', 'c@b.ru']
-  accounts  = [123456789, 987654321]
   password  = '123321123'
   
-  users.each do |email|
-    account = Account.where('number' => accounts.sample).first_or_create
+  users.each.with_index  do |email, index|
     user = User.new(
       :email => email,
       :password => password,
       :password_confirmation => password,
-      :account_id => account.id
+      :account_id => Account.create().id
     )
+    user.role_ids = (index == 0) ? [1,2] : [2] 
     user.confirm
     user.save
+    
   end
 
 end
