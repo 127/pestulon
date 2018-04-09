@@ -12,31 +12,24 @@
  *
  *= require_tree .
  *= require jquery-ui/datepicker
- *= require ionicons.min.css
+ *= require icomoon
+ *= require animate-custom
  *= require_self
- */
-
-body {padding-top: 50px!important; background: #2b2b2b;}
-	.crsl {background: #2b2b2b url('/_i/crsl/002.jpg') left top no-repeat; background-size: cover;}
-
-.navbar a {text-shadow: 1px 1px 1px #000}
-
-.ion-ios-email-outline, .ion-social-twitter-outline, .ion-social-facebook-outline {font-size: 1.5em;}
 
 /* ==========================================================================
    Wrap Sections
    ========================================================================== */
 
 #headerwrap {
-/*	background: url(<%= asset_path 'header_bg.jpg' %>) no-repeat center top;*/
-/*	margin-top: -50px;*/
-/*	padding-top:70px;*/
+	background: url(<%= asset_path 'header_bg.jpg' %>) no-repeat center top;
+	margin-top: -50px;
+	padding-top:120px;
 	text-align:center;
-/*	background-attachment: relative;
-	background-position: center center;*/
-	min-height: 600px;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
 	width: 100%;
-/*
+	
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -45,7 +38,7 @@ body {padding-top: 50px!important; background: #2b2b2b;}
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;*/
+    background-size: cover;
 }
 
 #headerwrap h1 {
@@ -59,7 +52,7 @@ body {padding-top: 50px!important; background: #2b2b2b;}
 }
 
 #headerwrap p {
-	color:#fff;
+	color:#ffffff;
 	font-size: 40px;
 	font-weight: 400;
 	text-align: center;
@@ -96,10 +89,11 @@ body {padding-top: 50px!important; background: #2b2b2b;}
 }
 
 #footerwrap {
+	background: #2b2b2b;
 	margin-top: 0px;
 	padding-top: 40px;
 	padding-bottom: 20px;
-/*	border-bottom: 1px solid #ddd;*/
+	border-bottom: 1px solid #ddd;
 	text-align: center;
 }
 
@@ -133,57 +127,61 @@ body {padding-top: 50px!important; background: #2b2b2b;}
     box-sizing: border-box;
     padding-top: 30px;
     padding-bottom: 70px;
-/*    margin-top: 45px;*/
+    margin-top: 45px;
+
+
     background-position: center center;
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
     background-size: 100%;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
     background-attachment: relative;
+    
     text-align: center;
 }
 
 .textdivider h1 {
 	padding-top: 70px;
-/*	color: white;*/
-	text-shadow:  1px 1px 1px #fff;
+	color: white;
 	font-size: 40px;
 }
 
 .textdivider p {
-/*	color: white;*/
-	text-shadow: 2px 2px 2px 2px #fff;
+	color: white;
 	font-size: 25px;
 }
 
 
-/* Section Dividers Backgrounds
+/* Section Dividers Backgrounds */
 
 .divider1 {
-	background-image:  url(<%= asset_path 'bg/divider1.jpg'%>)
+	background-image: url(<%= asset_path 'divider1.jpg' %>)
 }
-*/
+
 .divider2 {
-	background-image:  url(<%= asset_path 'bg/divider2.jpg'%>);
+	background-image: url(<%= asset_path 'divider2.jpg' %>)
 }
-/*
+
 .divider3 {
-	background-image:  url(<%= asset_path 'bg/divider3.jpg'%>);
+	background-image: url(<%= asset_path 'divider3.jpg' %>);
 	margin-top: 0px;
 }
-*/
+
 .divider4 {
-	background-image:  url(<%= asset_path 'bg/divider4.jpg'%>);
+	background-image: url(<%= asset_path 'divider4.jpg' %>)
 }
-/*
+
 .divider6 {
-	background-image:  url(<%= asset_path 'bg/divider6.jpg'%>)
+	background-image: url(<%= asset_path 'divider6.jpg' %>)
 }
-*/
+
 
 
 /* ==========================================================================
@@ -268,7 +266,7 @@ body {padding-top: 50px!important; background: #2b2b2b;}
 	font-weight: 700;
 	text-align: left;
 	letter-spacing: 2px;
-
+	
 }
 
 .grid figcaption a {
@@ -343,7 +341,7 @@ body {padding-top: 50px!important; background: #2b2b2b;}
 	background: #2b2b2b;
 	padding-right: 0px;
 	padding-left: 0px;
-
+	
 }
 
 .blog-bg h4 {
@@ -386,23 +384,3 @@ body {padding-top: 50px!important; background: #2b2b2b;}
 		line-height: 38px;
 	}
 }
-
-
-.navbar-brand img {background-color: transparent!important; width: 40px; height: 40px; margin: -9px 0 0 0!important;}
-
-.navbar-inverse .navbar-nav>li>a {color: #ccc;}
-	.wrapper {background: #fff!important;}
-		.wrapper-tall {min-height: 600px;}
-	.simple_form {margin-bottom: 30px;}
-.faq dd {margin-bottom: 15px;}
-
-.page-header h1 {margin-top: 0;}
-
-#footerwrap .container-fluid { font-size: .91em; color: #fff;}
-	#footerwrap .container-fluid a {padding: 3px; color: #fff; font-weight: bold; background: #3498db}
-	#footerwrap .container-fluid a:hover {background: none}
-	
-	#footerwrap .container-fluid ul {display:block; list-style: none; text-align: left; padding:0;}
-		#footerwrap .container-fluid li { display: inline; margin: 0 0 0 20px}
-
-	#copyright {display:block; text-align: right;}
