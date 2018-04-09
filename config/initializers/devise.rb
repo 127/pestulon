@@ -18,7 +18,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'donotreply@cryptohorde.io'
+  config.mailer_sender = 'donotreply@pestulon.io'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -282,13 +282,13 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   
   if Rails.env == 'development'
-    config.omniauth :facebook, "1074718892608952", "54de5dc95e729d6e38791b21571020e4"
+    config.omniauth :facebook, "123", "456"
 
   else
-    config.omniauth :facebook, "1073673192713522", "d14c747296ba66e41f6d7b74891567f7" #, callback_url: "CALLBACK_URL"
+    config.omniauth :facebook, "123", "456" #, callback_url: "CALLBACK_URL"
     
   end
-  config.omniauth :twitter,  "r7gbJhAlJsrUBJ6QvrSceliiz", "u9l3taomuzmCSqkf5KQFTnrx0A6jnwqIosLCJGtyiT26cbHrD0"
+  config.omniauth :twitter,  "123", "456"
 
   # config.omniauth :linkedin, "consumer_key", "consumer_secret", :scope => 'r_fullprofile r_emailaddress r_network'
 end
