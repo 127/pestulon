@@ -14,6 +14,12 @@
 //= require rails-ujs
 //= require jquery2
 //= require bootstrap
+//= require modernizr.custom
 //= require jquery-ui/widgets/datepicker
+//= require jquery.cookie
+//= require purl
+//= require jquery.easing.1.3
+//= require smoothscroll
+//= require jquery-func
 //= require turbolinks
 //= require_tree .

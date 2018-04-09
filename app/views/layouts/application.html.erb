@@ -1,16 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Pestulon</title>
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : t('title') %></title>
     <%= csrf_meta_tags %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <body>
-	  <p class="notice"><%= notice %></p>
-	        <p class="alert"><%= alert %></p>
-    <%= yield %>
+	<link rel="apple-touch-icon" sizes="57x57" href="/_i/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/_i/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/_i/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/_i/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/_i/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/_i/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/_i/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/_i/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/_i/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/_i/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/_i/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/_i/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/_i/favicon-16x16.png">
+	<link rel="manifest" href="/_i//manifest.json">
+	<meta name="msapplication-config" content="/_i/browserconfig.xml" />
+	<meta name="msapplication-TileColor" content="#000000">
+	<meta name="msapplication-TileImage" content="/_i/ms-icon-144x144.png">
+	<meta name="theme-color" content="#000000">
+	
+  </head>
+  <body data-spy="scroll" data-offset="0" data-target="#navbar-main"<%= ' class="crsl"'.html_safe if controller.controller_name=='pages' && !params[:page] %>>
+
+    <div id="navbar-main">
+          <!-- Fixed navbar -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+    			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    				<span class="sr-only">Toggle navigation</span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    			</button>
+				<% ttl = content_for?(:title) ? yield(:title) : t('title') %>
+				<a class="navbar-brand" href="/<%= I18n.locale %>/">
+					Pestulon
+					<!-- <img src="/_i/apple-icon-57x57.png" alt="<%= ttl %>" title="<%= ttl %>" /> -->
+				</a>
+            </div>
+            <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+				<% if user_signed_in? %>
+                <li>
+					Menu 1
+				</li>
+				<% end %>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+    			<% if user_signed_in? %>
+    			<% if current_user.role? :admin %>
+					<%= render 'admin/shared/menu' %>	
+    			<% end %>
+				<% if current_user.role? :owner %>
+				<li>
+					<%= link_to t('activerecord.models.account.one').mb_chars.titleize, account_index_path %>
+				</li>
+				<% end %>
+				<!--li<%= ' class="active"'.html_safe if controller.controller_name=='invitations'%>>
+					<%= link_to t('shared.labels.invite'), new_invitation_path(:user) %>
+				</li-->
+              <li>
+                <%= link_to image_tag(avatar_url(current_user.email), size: '20x20', alt: current_user.email, title:  current_user.email), edit_user_registration_path %>
+              </li>
+              <li>
+                <%= link_to t('shared.labels.logout'), destroy_user_session_path, :method => :delete %>
+              </li>
+    			<% else %>
+				<li><a><%=  t 'shared.labels.login' %>:</a></li>
+    			<li<%= ' class="active"'.html_safe if controller.controller_name=='sessions'%>>
+					<%= link_to '', new_user_session_path,  :class=>'ion-ios-email-outline'  %>
+				</li>
+				<li><%= link_to '', user_twitter_omniauth_authorize_path,  :class=>'ion-social-twitter-outline' %></li>
+				<li><%= link_to '', user_facebook_omniauth_authorize_path, :class=>'ion-social-facebook-outline' %></li>
+    			<li<%= ' class="active"'.html_safe if controller.controller_name=='registrations'%>>
+					<%= link_to t('shared.labels.registration'), new_user_registration_path  %>
+				</li>
+    			<% end %>
+            </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+    </div>
+	
+
+	<% root = true if controller_name == 'pages' && !params[:page] %>
+
+	<% unless root %>
+	<div class="wrapper wrapper-tall">
+		<div class="container<%= '-fluid' if !request.url.include?('auth') && !params[:page] %>">
+	<% end %>
+		<!--p class="notice"><%= notice %></p>
+	  	<p class="alert"><%= alert %></p-->
+		<%= yield %>
+		<br/>
+	
+		<% unless root %>
+		</div>
+	</div>
+	<% end %>
+
+
+    <footer id="footerwrap">
+  		<div class="container-fluid">
+			<div class="row">
+				<ul class="col-md-6 col-sm-8">
+  				<!--li><%= link_to t('shared.labels.help'), pages_path(:page=>'help') %></li>
+  				<li><%= link_to t('shared.labels.pricing'), pages_path(:page=>'pricing'), :class=>'label label-info' %></li-->
+					<li><%= link_to t('shared.labels.contacts'), pages_path(:page=>'contacts') %></li>
+					<li><%= link_to t('shared.labels.eula'), pages_path(:page=>'terms') %></li>
+					<li><%= link_to t('shared.labels.privacy'), pages_path(:page=>'privacy') %></li>
+				</ul>
+				<p id="copyright" class="col-md-6 col-sm-8"><%= t('shared.labels.copy') %>&mdash;<%= Time.now.strftime("%Y") %></p>
+			</div>
+  		</div>
+  	</footer>
+
+	<script>
+// google analytics
+	</script>
   </body>
 </html>
+<%# console %>

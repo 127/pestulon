@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'omniauth_callbacks'}
+
+  namespace :admin do
+    root to: 'users#index'
+    resources :subscriptions, :users, :accounts, :roles, :wallets
+  end
   
   scope '(:locale)', :locale => /en|ru/ do
     
@@ -9,9 +14,9 @@ Rails.application.routes.draw do
     
     get 'pages/*page' => 'pages#index', :as => 'pages'
 
-    # resources :account, only: [:index] do
-    #   delete 'user/:id(.:format)', :to => 'account#remove'
-    # end
+    resources :account, only: [:index] do
+      delete 'user/:id(.:format)', :to => 'account#remove'
+    end
     
     devise_for :users, :controllers => {
                         :registrations => 'registrations',
