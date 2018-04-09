@@ -72,9 +72,9 @@
 					<%= link_to t('activerecord.models.account.one').mb_chars.titleize, account_index_path %>
 				</li>
 				<% end %>
-				<!--li<%= ' class="active"'.html_safe if controller.controller_name=='invitations'%>>
+				<li<%= ' class="active"'.html_safe if controller.controller_name=='invitations'%>>
 					<%= link_to t('shared.labels.invite'), new_invitation_path(:user) %>
-				</li-->
+				</li>
               <li>
                 <%= link_to image_tag(avatar_url(current_user.email), size: '20x20', alt: current_user.email, title:  current_user.email), edit_user_registration_path %>
               </li>
