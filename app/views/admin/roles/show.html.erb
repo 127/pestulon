@@ -1,0 +1,20 @@
+<%- model_class = Role -%>
+<div class="page-header">
+  <h1><%= @role.name %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:id) %>:</strong></dt>
+  <dd><%= @role.id %>&nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:created_at) %>:</strong></dt>
+  <dd><%= @role.created_at %>&nbsp;</dd>
+  <dt><strong><%= model_class.human_attribute_name(:updated_at) %>:</strong></dt>
+  <dd><%= @role.updated_at %>&nbsp;</dd>
+  <dt><%= model_class.human_attribute_name(:users) %>
+  <dd><%= @role.users.count %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              admin_roles_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_admin_role_path(@role), :class => 'btn btn-default' %>

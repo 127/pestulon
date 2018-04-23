@@ -1,0 +1,8 @@
+<h2><%= t 'shared.labels.registration' %></h2>
+<%= simple_form_for([:admin, @user], :html => { :class => 'form-horizontal' }) do |f| %>
+	<%= f.error_notification %>
+    <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :password, :required => true %>
+    <%= f.input :password_confirmation, :required => true %>
+    <%= f.button :submit, t('shared.links.register'), class: 'btn-default' %>
+<% end %>

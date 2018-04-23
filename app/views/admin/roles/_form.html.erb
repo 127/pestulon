@@ -1,0 +1,8 @@
+<%= simple_form_for([:admin, @role], :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name %>
+  <%= f.button :submit, class: 'btn-primary' %>
+	<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_roles_path, :class => 'btn btn-default' %>
+<% end %>
+<% #console %>
