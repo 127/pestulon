@@ -1,0 +1,12 @@
+<div class="page-header">
+	<h1><%= t "devise.invitations.new.header" %></h1>
+</div>
+
+<%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post, :class => 'form-horizontal'} do |f| %>
+  <%= f.error_notification %>
+  <%= render partial: "devise/shared/flash_messages", flash: flash %>
+  <% resource.class.invite_key_fields.each do |field| %>
+  <%= f.input field %>
+<% end %>
+	<%= f.button :submit, t("devise.invitations.new.submit_button"), class: 'btn-default' %>
+<% end %>

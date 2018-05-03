@@ -1,0 +1,17 @@
+ru:
+  devise:
+    invitations:
+      send_instructions: 'Приглашение было отправлено %{email}.'
+      invitation_token_invalid: 'Срок действия ссылки истек!'
+      updated: 'Ваш пароль подтвержден. Теперь можете войти.'
+      no_invitations_remaining: "Не осталось приглашений"
+      invitation_removed: 'Ваше приглашение удалено.'
+      new:
+        header: "Добавить пользователя"
+        submit_button: "Пригласить"
+      edit:
+        header: "Вы приняли приглашение! Введите новый пароль."
+        submit_button: "Изменить"
+    mailer:
+      invitation_instructions:
+        subject: 'Вас пригласили воспользоваться сервисом'

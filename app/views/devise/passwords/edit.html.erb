@@ -1,19 +1,16 @@
-<h2>Change your password</h2>
+<div class="page-header">
+	<h1><%= t 'simple_form.labels.user.recovery.change' %></h1>
+</div>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :class => 'form-horizontal'  }) do |f| %>
   <%= f.error_notification %>
-
-  <%= f.input :reset_password_token, as: :hidden %>
+  <%= render partial: "devise/shared/flash_messages", flash: flash %> 
+  <%= f.input :reset_password_token, :as => :hidden %>
   <%= f.full_error :reset_password_token %>
+  <%= f.input :password, :label => t('simple_form.labels.user.recovery.new'), :required => true, :autofocus => true %>
+    <%= f.input :password_confirmation, :label => t('simple_form.labels.user.recovery.confirm'), :required => true %>
 
-  <div class="form-inputs">
-    <%= f.input :password, label: "New password", required: true, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
-  </div>
+   <%= f.button :submit, t('simple_form.labels.user.recovery.submit'), class: 'btn-default' %>
 <% end %>
 
 <%= render "devise/shared/links" %>

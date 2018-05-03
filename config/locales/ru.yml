@@ -1,0 +1,152 @@
+ru:
+  title: 'Pestulon'
+  activerecord:
+    models: 
+        user: 
+          one: 'пользователь'
+          other: 'пользователи'
+        identity:
+          one: 'профиль'
+          other: 'профиль'
+        role:
+          one: 'роль'
+          other: 'роли'
+        subscription:
+          one: 'подписка'
+          other: 'подписки'
+        account:
+          one: 'аккаунт'
+          other: 'аккаунты'
+    attributes:
+        attribute_commons: &commons
+            created_at: 'Создано'
+            updated_at: 'Обновлено'
+        role:
+            <<: *commons
+            name: 'Имя'
+            users: 'Пользователи'
+        subscription:
+            <<: *commons
+            name: 'Имя'
+            status: 'Статус'
+        account:
+            <<: *commons
+            role: 'Роль'
+            name: 'Имя'
+            users: 'Пользователи'
+            number: 'Счет'
+        user:
+            <<: *commons
+            account: 'Счет'
+            name: 'Имя'
+            role: 'Пользователи'
+            account: 'Счет'
+            password: 'Пароль'
+            password_confirmation: 'Подтверждение пароля'
+            current_password: 'Текущий пароль'
+            remember_me: 'Запомнить меня'
+            sign_in_count: 'Количество входов'
+            current_sign_in_at: 'Последний вход'
+            current_sign_in_ip: 'Последний ip'
+            last_sign_in_at: 'Текущий вход'
+            last_sign_in_ip: 'Текущий ip'
+            confirmed_at: 'Подтвержден'
+            confirmation_sent_at: 'Подтверждение отправлено'
+            unconfirmed_email: 'Неподтвержденное мыло'
+            failed_attempts: 'Попыток авторизации'
+            locked_at: 'Замок'
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+      date: "%Y-%m-%d"
+      md: "%m-%d"
+    labels:
+        year: 'Год'
+        month: 'Месяц'
+        week: 'Неделя'
+        day: 'День'
+        last2weeks: '2 недели'
+        last2months: '2 месяца'
+  time:
+    formats:
+      default: "%d %m %Y, %H:%M:%S %z"
+      time: "%H:%M"
+      short: "%d %b, %H:%M"
+      long: "%d %B %Y, %H:%M"
+      date: "%Y-%m-%d"
+      md: "%m-%d"
+      descr: "%d %b %Y"
+  currency:
+    format:
+      format: "%n %u"
+      unit: "бел. руб"
+      separator: "."
+      delimiter: " "
+      precision: 2
+      significant: false
+      strip_insignificant_zeros: false
+  views:
+    pagination:
+      first: "&laquo; Начало"
+      last: "Конец &raquo;"
+      previous: "&lsaquo; Назад"
+      next: "Вперед &rsaquo;"
+      truncate: "..."
+  shared:
+    messages: 
+      nodata: 'За указанный период нет данных'
+    labels:
+      flow: 'Поток'
+      new: 'Новый'
+      stats: 'Статистика'
+      invite: 'Пригласить'
+      user: 'Пользователь'
+      login: "Вход"
+      logout: "Выход"
+      registration: "Регистрация"
+      choose: 'Выбрать'
+      statistics: 'Статистика'
+      from: 'начало'
+      to: 'конец'
+      yep: 'да'
+      nope: 'нет'
+      outcome: 'Расход'
+      income: 'Доход'
+      show: 'По'
+      alltime: 'За все время'
+      bills: 'счетов'
+      by: 'по'
+      in_category: 'в категории'
+      these_dates: 'В интервале'
+      total: 'всего'
+      all: 'Все'
+      categories: 'Категории'
+      newcategory: 'Новая категория в группе'
+      groups&categories: 'Группы и категории'
+      tags: 'Тэги'
+      contacts: 'Контакты'
+      pricing: 'Тарифы'
+      help: 'Помощь'
+      admin: 'Админ'
+      acl: 'Права'
+      accounting: 'Основное'
+      other: 'Другое'
+      help: 'Помощь'
+      privacy: 'Конфиденциальность'
+      security: 'Безопасность'
+      eula: 'Пользовательское соглашение'
+      copy: '© «Pestulon» Все права защищены 2007'
+    links:
+      login: 'Войти'
+      logout: 'Выйти'
+      register: 'Зарегистрироваться'
+      password: 'Забыли пароль?'
+      confirmation: 'Не получили письма о подтверждении учетной записи?'
+      unlock: 'Не получили инструкций по разблокированию?'
+      sign_with: 'Войти с помощью'
+  recaptcha:
+    errors:
+      incorrect-captcha-sol: 'Неверно введено значение на изображении'
+      
