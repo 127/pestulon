@@ -8,3 +8,7 @@ development:
   encoding: utf8
   adapter: postgresql
   database: pestulon_development
+test:
+  encoding: utf8
+  adapter: postgresql
+  database: pestulon_test
