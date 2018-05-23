@@ -1,3 +1,5 @@
+# TODO check this http://blog.jex.tw/blog/2015/04/12/rails-user/
+
 class RegistrationsController < Devise::RegistrationsController
   prepend_before_action :check_captcha, only: [:create]
    

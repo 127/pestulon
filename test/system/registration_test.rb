@@ -36,8 +36,8 @@ class UsersTest < ApplicationSystemTestCase
     mail = ActionMailer::Base.deliveries.last
     # link = links_in_email(mail)[1]
     # visit link
-    p 123
-    puts  Devise.mailer.deliveries
+    # p 123
+    # puts  Devise.mailer.deliveries
     
     # mail.body.find_link("Confirm my account").click_link
   end

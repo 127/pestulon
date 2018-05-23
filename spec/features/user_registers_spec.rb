@@ -1,8 +1,7 @@
 # https://raw.githubusercontent.com/eliotsykes/rspec-rails-examples/master/spec/features/user_registers_spec.rb
 require 'rails_helper'
 
-
-feature "User registers" do
+feature "User registers", js: true do
   fixtures :roles, :roles_users, :users
   # before do
   #   Recaptcha.configuration.skip_verify_env.delete("test")
@@ -11,17 +10,22 @@ feature "User registers" do
   # after do
   #   Recaptcha.configuration.skip_verify_env << "test"
   # end
+   # controller.stub(:verify_recaptcha) { true }
   scenario "with valid details" do
 
     visit "/"
 
     click_link "Sign up"
     expect(current_path).to eq( new_user_registration_path(:locale=>I18n.locale))
-
+    
+    # controller.stub(:verify_recaptcha) { true }
+    # RegistrationsController.stub(:verify_recaptcha).and_return(true)
     fill_in "Email", with: "tester@example.tld"
     fill_in "Password", with: "test-password", :match => :prefer_exact
     fill_in "Password confirmation", with: "test-password", :match => :prefer_exact
     click_button "Register"
+    
+    # allow(controller).to receive(:verify_recaptcha).and_return(true)
 
     expect(current_path).to eq new_user_session_path(:locale=>I18n.locale)
     expect(page).to have_content(
