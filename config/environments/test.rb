@@ -46,3 +46,4 @@ Rails.application.configure do
   
   Recaptcha.configuration.skip_verify_env.delete('test')
 end
+  # Recaptcha.configuration.skip_verify_env.delete('test')

@@ -27,7 +27,18 @@ class UsersTest < ApplicationSystemTestCase
     
     click_button 'Register'
     
-    # assert_equal new_user_session_path(:locale=>I18n.locale), current_path
+    #check if redirected to registration page
+    assert_equal new_user_session_path(:locale=>I18n.locale), current_path
     
+    # open_email "tester@example.tld", with_subject: "Confirmation instructions"
+    # visit_in_email "Confirm my account"
+    
+    mail = ActionMailer::Base.deliveries.last
+    # link = links_in_email(mail)[1]
+    # visit link
+    p 123
+    puts  Devise.mailer.deliveries
+    
+    # mail.body.find_link("Confirm my account").click_link
   end
 end
