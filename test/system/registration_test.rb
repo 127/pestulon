@@ -3,15 +3,7 @@
 require 'application_system_test_case'
 
 class UsersTest < ApplicationSystemTestCase
-  # def setup
-  #   # will clear the message queue
-  #   clear_emails
-  #   visit email_trigger_path
-  #
-  #   # Will find an email sent to `test@example.com`
-  #   # and set `current_email`
-  #   open_email('tester@example.tld')
-  # end
+
   test 'creating a user' do
   
     
@@ -20,7 +12,7 @@ class UsersTest < ApplicationSystemTestCase
     click_link 'Sign up'
     
     assert_equal new_user_registration_path(:locale=>I18n.locale), current_path
-    puts Recaptcha.configuration.skip_verify_env
+
     fill_in 'Email', with: 'tester@example.tld'
     fill_in 'Password', with: 'test-password', :match => :prefer_exact
     fill_in 'Password confirmation', with: 'test-password', :match => :prefer_exact
@@ -41,9 +33,8 @@ class UsersTest < ApplicationSystemTestCase
     # current_email.click_link 'Confirm my account'
     
     mail = ActionMailer::Base.deliveries.last
-    puts mail
-    # # link = links_in_email(mail)[1]
-    # # visit link
+    # link = links_in_email(mail)[1]
+    # visit link
     # p 123
     # puts  Devise.mailer.deliveries
     

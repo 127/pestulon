@@ -6,6 +6,3 @@ Recaptcha.configure do |config|
   config.site_key   = Rails.env.development? ? '6LeXtVoUAAAAALzisggNDQ8IzfLocnicPAsuPmGV' : 'SETUP!'
   config.secret_key = Rails.env.development? ? '6LeXtVoUAAAAALXE2Ke3spxMShiNegF7XxSjeQAR' : 'SETUP!'
 end
-
-# [Optional] Skip Test Env
-Recaptcha.configuration.skip_verify_env.delete 'test'

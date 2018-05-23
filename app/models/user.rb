@@ -81,7 +81,7 @@ class User < ApplicationRecord
     # Default role is "Registered"
     def setup_account
       self.account = Account.create if self.account_id == nil
-      #TODO не работает скорее всего
+      #TODO не работает скорее всего вынесено в контроллер
       # if self.invited_by_id != nil
       #   self.account = self.invited_by.account
       # elsif self.account_id == nil
