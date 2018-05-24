@@ -32,19 +32,21 @@ class UsersTest < ApplicationSystemTestCase
     assert_text I18n.t('devise.confirmations.confirmed') 
     
     #login
-    fill_in "Email", with: "tester@example.tld"
+    fill_in "Email",    with: "tester@example.tld"
     fill_in "Password", with: "test-password"
     # click_on class: 'ion-ios-email-outline'
     click_button I18n.t('shared.links.login')
 
     assert_equal root_path(:locale=>I18n.locale), current_path
     assert_text I18n.t('shared.labels.logout')
-    #WTF!? it fails
-    # expect(page).to have_content "Signed in successfully."
-    # puts assert_select 'a[href]'
-    # assert_select "a img" do
-    #   assert_select "[alt=?]", 'tester@example.tld'
-    # end
+    assert_selector  :xpath, ".//img[@alt='tester@example.tld']"
+    # noeflash message on title change it if needed
+    # assert_text I18n.t('devise.sessions.signed_in')
+    
+    click_link I18n.t('shared.labels.logout')
+    assert_equal new_user_session_path(:locale=>I18n.locale), current_path
+    assert_text I18n.t('shared.labels.registration')
+    assert_text I18n.t('devise.sessions.signed_out')
    
   end
 end
