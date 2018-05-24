@@ -3,41 +3,32 @@
 require 'application_system_test_case'
 
 class UsersTest < ApplicationSystemTestCase
-
+  
   test 'creating a user' do
   
-    
     visit '/'
 
     click_link 'Sign up'
-    
     assert_equal new_user_registration_path(:locale=>I18n.locale), current_path
 
     fill_in 'Email', with: 'tester@example.tld'
     fill_in 'Password', with: 'test-password', :match => :prefer_exact
     fill_in 'Password confirmation', with: 'test-password', :match => :prefer_exact
-    
     click_button 'Register'
-    
-    # RegistrationsController.stub(:verifsy_recaptcha).and_return(true)
-
-    # controller.stub(:verify_recaptcha) { true }
     
     #check if redirected to registration page
     assert_equal new_user_session_path(:locale=>I18n.locale), current_path
+    assert_text I18n.t('devise.registrations.signed_up_but_unconfirmed')
     
-    # open_email "tester@example.tld", with_subject: "Confirmation instructions"
-    # visit_in_email "Confirm my account"
-    # puts current_email
+    open_email('tester@example.tld')
+    links = Nokogiri::HTML(current_email.body).css('a').map {|element| element["href"]}.compact
+    visit links.first
+    # current_email.first(:link, 'Confirm my account').click
+    # puts link.href
+    # visit current_email.first(:link, 'Confirm my account')
     
-    # current_email.click_link 'Confirm my account'
+    assert_equal new_user_session_path(:locale=>I18n.locale), current_path
+    assert_text I18n.t('devise.confirmations.confirmed') 
     
-    mail = ActionMailer::Base.deliveries.last
-    # link = links_in_email(mail)[1]
-    # visit link
-    # p 123
-    # puts  Devise.mailer.deliveries
-    
-    # mail.body.find_link("Confirm my account").click_link
   end
 end

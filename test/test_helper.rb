@@ -7,4 +7,5 @@ class ActiveSupport::TestCase
   include Capybara::Email::DSL
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
+  Capybara.server_port = 3002
 end

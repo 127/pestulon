@@ -26,6 +26,8 @@ end
 Rails.application.routes.default_url_options =
      if Rails.env.production?
        {host: 'pestulon.io', protocol: 'https'}
-     else
-       {host: 'localhost:3000'}
+     elseif Rails.env.development?
+       {host: '127.0.0.1:3000'}
+     else 
+       {host: '127.0.0.1:3002'}
      end
