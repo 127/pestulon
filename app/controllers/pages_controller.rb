@@ -1,9 +1,10 @@
 class PagesController < ApplicationController
   def index
     if !params[:page]  && user_signed_in?
-      # redirect_to bills_path
+      # will cause test:system error if enabled here
+      # redirect_to root_path
     else 
-      # @subscription = Subscription.new
+      @subscription = Subscription.new
       render params[:page] || 'index'
     end
   end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root :to => 'users#index'
-    resources :subscriptions, :users, :accounts, :roles, :wallets
+    resources :subscriptions, :users, :accounts, :roles
   end
   
   scope '(:locale)', :locale => /en|ru/ do
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     root :to => 'pages#index'
     get 'pages/*page' => 'pages#index', :as => 'pages'
 
-    resources :subscriptions
+    resources :subscriptions, only: [:show, :new, :create]
     
     resources :account, only: [:index] do
       delete 'user/:id(.:format)', :to => 'account#remove'

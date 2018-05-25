@@ -24,7 +24,7 @@ class Admin::SubscriptionsController < Admin::AdminController
   # POST /subscriptions
   # POST /subscriptions.json
   def create
-    @subscription = Subscription.new(subscription_params)
+    @subscription = Subscription.new subscription_params
 
     respond_to do |format|
       if @subscription.save
@@ -64,7 +64,7 @@ class Admin::SubscriptionsController < Admin::AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_subscription
-      @subscription = Subscription.find(params[:id])
+      @subscription = Subscription.find params[:id] 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
