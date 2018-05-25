@@ -103,4 +103,7 @@ Rails.application.configure do
   }
   ActionMailer::Base.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'pestulon.io', :locale => I18n.locale }
+  config.after_initialize do
+    Rails.application.routes.default_url_options =  {host: 'pestulon.io', protocol: 'https'}
+  end
 end

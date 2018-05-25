@@ -22,12 +22,3 @@ module Pestulon
     # the framework and any gems in your application.
   end
 end
-
-Rails.application.routes.default_url_options =
-     if Rails.env.production?
-       {host: 'pestulon.io', protocol: 'https'}
-     elseif Rails.env.development?
-       {host: '127.0.0.1:3000'}
-     else 
-       {host: '127.0.0.1:3002'}
-     end

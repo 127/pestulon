@@ -19,6 +19,8 @@ class UsersTest < ApplicationSystemTestCase
     assert_equal new_user_session_path(:locale=>I18n.locale), current_path
     assert_text I18n.t('devise.registrations.signed_up_but_unconfirmed')
     expect_fields_to_be_blank
+    
+    # TODO check unconfirmed login
 
     # check approval link
     open_email('tester@example.tld')
