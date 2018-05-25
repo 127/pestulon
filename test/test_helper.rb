@@ -4,8 +4,8 @@ require 'rails/test_help'
 require 'capybara/email'
 
 class ActiveSupport::TestCase
+  #capybara specific gem
   include Capybara::Email::DSL
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
-  Capybara.server_port = 3002
 end
