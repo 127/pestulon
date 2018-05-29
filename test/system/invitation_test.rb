@@ -24,6 +24,8 @@ class InvitationTest < ApplicationSystemTestCase
     assert_equal new_user_invitation_path(:locale=>I18n.locale), current_path
     assert_empty find_field('Email', type: 'email').value
     
+    fill_in 'Email',    with: 'b@b.ru'
+    click_on I18n.t('devise.invitations.new.submit_button')
     
   end
   
@@ -31,6 +33,7 @@ class InvitationTest < ApplicationSystemTestCase
   end
   
   test 'invite existing user' do
+    #message has already been taken
   end
   
   
