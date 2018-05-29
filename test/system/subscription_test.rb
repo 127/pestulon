@@ -45,8 +45,8 @@ class SubscriptionTest < ApplicationSystemTestCase
     end
     
     def correct_data_fill_in
-      fill_in 'Email', with: 'tester@example.tld'
-      fill_in 'Name', with: 'tester@example.tld'
+      fill_in 'Email', with: 'not@existing.user'
+      fill_in 'Name', with: 'not@existing.user'
       click_button 'Create subscription'
       assert_selector "h1", text: "You've subscribed!" 
     end

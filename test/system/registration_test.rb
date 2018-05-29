@@ -10,7 +10,7 @@ class RegistrationTest < ApplicationSystemTestCase
     assert_equal new_user_registration_path(:locale=>I18n.locale), current_path
     expect_fields_to_be_blank 1
 
-    fill_in 'Email', with: 'tester@example.tld'
+    fill_in 'Email', with: 'not@existing.user'
     fill_in 'Password', with: 'test-password', :match => :prefer_exact
     fill_in 'Password confirmation', with: 'test-password', :match => :prefer_exact
     click_button I18n.t('shared.links.register')
@@ -20,15 +20,18 @@ class RegistrationTest < ApplicationSystemTestCase
     assert_text I18n.t('devise.registrations.signed_up_but_unconfirmed')
     expect_fields_to_be_blank
     
+    # @depracated 
+    # moved to aut_test.rb
+    # TODO think of this test is needed here
     # check unconfirmed login
-    fill_in 'Email',    with: 'tester@example.tld'
-    fill_in 'Password', with: 'test-password'
-    click_button I18n.t('shared.links.login')
-    assert_text I18n.t('devise.failure.unconfirmed')
-    expect_fields_to_be_blank
+    # fill_in 'Email',    with: 'not@existing.user'
+    # fill_in 'Password', with: 'test-password'
+    # click_button I18n.t('shared.links.login')
+    # assert_text I18n.t('devise.failure.unconfirmed')
+    # expect_fields_to_be_blank
 
     # check approval link
-    open_email('tester@example.tld')
+    open_email('not@existing.user')
     # can be also done this way
     # links = Nokogiri::HTML(current_email.body).css('a').map {|element| element['href']}.compact
     # visit links.first
@@ -41,15 +44,16 @@ class RegistrationTest < ApplicationSystemTestCase
 
     # @depracated 
     # moved to aut_test.rb
+    # TODO think of this test is needed here
     #
     # # login
-    # fill_in 'Email',    with: 'tester@example.tld'
+    # fill_in 'Email',    with: 'not@existing.user'
     # fill_in 'Password', with: 'test-password'
     # click_button I18n.t('shared.links.login')
     #
     # assert_equal root_path(:locale=>I18n.locale), current_path
     # assert_text I18n.t('shared.labels.logout')
-    # assert_selector  :xpath, ".//img[@alt='tester@example.tld']"
+    # assert_selector  :xpath, ".//img[@alt='not@existing.user']"
     # # noeflash message on Index change it if needed
     # # assert_text I18n.t('devise.sessions.signed_in')
     #
@@ -74,7 +78,7 @@ class RegistrationTest < ApplicationSystemTestCase
   test 'user with incorrect password confirmation' do
     visit new_user_registration_path
     expect_fields_to_be_blank 1
-    fill_in 'Email', with: 'tester@example.tld'
+    fill_in 'Email', with: 'not@existing.user'
     fill_in 'Password', with: 'test-password', :match => :prefer_exact
     fill_in 'Password confirmation', with: 'not-test-password', :match => :prefer_exact
     click_button I18n.t('shared.links.register')
@@ -87,7 +91,7 @@ class RegistrationTest < ApplicationSystemTestCase
     expect_fields_to_be_blank 1
     fill_in 'Email', with: 'a@b.ru'
     fill_in 'Password', with: 123321123, :match => :prefer_exact
-    fill_in 'Password confirmation', with: 'test-password', :match => :prefer_exact
+    fill_in 'Password confirmation', with: 123321123, :match => :prefer_exact
     click_button I18n.t('shared.links.register')
     assert_equal user_registration_path(:locale=>I18n.locale), current_path
     assert_selector 'input#user_email+span', text: 'has already been taken'
@@ -107,7 +111,7 @@ class RegistrationTest < ApplicationSystemTestCase
   test 'user with too short password' do
     visit new_user_registration_path
     expect_fields_to_be_blank 1
-    fill_in 'Email', with: 'tester@example.tld'
+    fill_in 'Email', with: 'not@existing.user'
     fill_in 'Password', with: '1', :match => :prefer_exact
     fill_in 'Password confirmation', with: '1', :match => :prefer_exact
     click_button I18n.t('shared.links.register')

@@ -10,6 +10,14 @@ owner_user2:
   role_id:  2
   user_id:  3
 
+owner_user3:
+  role_id:  2
+  user_id:  4
+
 user_invited:
   role_id:  3
-  user_id:  4
+  user_id:  5
+  
+owner_unconfirmed:
+  role_id:  2
+  user_id:  6

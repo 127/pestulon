@@ -1,17 +1,38 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+<% 
+pass = Devise::Encryptor.digest User, 123321123 
+confirmed_at = DateTime.now
+%>
 admin:
   id:       1
   email:    admin@b.ru
+  encrypted_password: <%= pass %>
+  confirmed_at: <%= confirmed_at %>
 
 user1:
   id:       2
   email:    a@b.ru
-
+  encrypted_password: <%= pass %>
+  confirmed_at: <%= confirmed_at %>
+  
 user2:
   id:       3
   email:    b@b.ru
- 
-invited:
+  encrypted_password: <%= pass %>
+  confirmed_at: <%= confirmed_at %>
+  
+user3:
   id:       4
   email:    c@b.ru
+  encrypted_password: <%= pass %>
+  confirmed_at: <%= confirmed_at %>
+  
+invited:
+  id:       5
+  email:    invited@b.ru
+  encrypted_password: <%= pass %>
+  confirmed_at: <%= confirmed_at %>
+  
+unconfirmed:
+  id:       6
+  email:    unconfirmed@b.ru
+  encrypted_password: <%= pass %>
