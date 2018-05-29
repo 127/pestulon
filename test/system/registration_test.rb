@@ -20,12 +20,17 @@ class UsersTest < ApplicationSystemTestCase
     assert_text I18n.t('devise.registrations.signed_up_but_unconfirmed')
     expect_fields_to_be_blank
     
-    # TODO check unconfirmed login
+    # check unconfirmed login
+    fill_in 'Email',    with: 'tester@example.tld'
+    fill_in 'Password', with: 'test-password'
+    click_button I18n.t('shared.links.login')
+    assert_text I18n.t('devise.failure.unconfirmed')
+    expect_fields_to_be_blank
 
     # check approval link
     open_email('tester@example.tld')
     # can be also done this way
-    # links = Nokogiri::HTML(current_email.body).css('a').map {|element| element["href"]}.compact
+    # links = Nokogiri::HTML(current_email.body).css('a').map {|element| element['href']}.compact
     # visit links.first
     current_email.first(:link, 'Confirm my account').click
 
@@ -35,9 +40,8 @@ class UsersTest < ApplicationSystemTestCase
     expect_fields_to_be_blank
 
     # login
-    fill_in "Email",    with: "tester@example.tld"
-    fill_in "Password", with: "test-password"
-    # click_on class: 'ion-ios-email-outline'
+    fill_in 'Email',    with: 'tester@example.tld'
+    fill_in 'Password', with: 'test-password'
     click_button I18n.t('shared.links.login')
 
     assert_equal root_path(:locale=>I18n.locale), current_path
@@ -59,53 +63,53 @@ class UsersTest < ApplicationSystemTestCase
     click_button I18n.t('shared.links.register')
     # not new_user_registration_path!!!!!!
     assert_equal user_registration_path(:locale=>I18n.locale), current_path
-    assert_selector "input#user_email+span",    text: "can't be blank"
-    assert_selector "input#user_password+span", text: "can't be blank"
-    # assert_selector "input#user_password_confirmation+span", text: "can't be blank"
+    assert_selector 'input#user_email+span',    text: "can't be blank"
+    assert_selector 'input#user_password+span', text: "can't be blank"
+    # assert_selector 'input#user_password_confirmation+span', text: "can't be blank"
   end
 
   test 'user with incorrect password confirmation' do
     visit new_user_registration_path
     expect_fields_to_be_blank 1
-    fill_in "Email", with: "tester@example.tld"
-    fill_in "Password", with: "test-password", :match => :prefer_exact
-    fill_in "Password confirmation", with: "not-test-password", :match => :prefer_exact
+    fill_in 'Email', with: 'tester@example.tld'
+    fill_in 'Password', with: 'test-password', :match => :prefer_exact
+    fill_in 'Password confirmation', with: 'not-test-password', :match => :prefer_exact
     click_button I18n.t('shared.links.register')
     assert_equal user_registration_path(:locale=>I18n.locale), current_path
-    assert_selector "input#user_password_confirmation+span", text: "doesn't match Password"
+    assert_selector 'input#user_password_confirmation+span', text: "doesn't match Password"
   end
 
   test 'user with already registered email' do
     visit new_user_registration_path
     expect_fields_to_be_blank 1
-    fill_in "Email", with: "a@b.ru"
-    fill_in "Password", with: "test-password", :match => :prefer_exact
-    fill_in "Password confirmation", with: "test-password", :match => :prefer_exact
+    fill_in 'Email', with: 'a@b.ru'
+    fill_in 'Password', with: 'test-password', :match => :prefer_exact
+    fill_in 'Password confirmation', with: 'test-password', :match => :prefer_exact
     click_button I18n.t('shared.links.register')
     assert_equal user_registration_path(:locale=>I18n.locale), current_path
-    assert_selector "input#user_email+span", text: "has already been taken"
+    assert_selector 'input#user_email+span', text: 'has already been taken'
   end
 
   test 'user with invalid email' do
     visit new_user_registration_path
     expect_fields_to_be_blank 1
-    fill_in "Email", with: "invalid-email-for-testing"
-    fill_in "Password", with: "test-password", :match => :prefer_exact
-    fill_in "Password confirmation", with: "test-password", :match => :prefer_exact
+    fill_in 'Email', with: 'invalid-email-for-testing'
+    fill_in 'Password', with: 'test-password', :match => :prefer_exact
+    fill_in 'Password confirmation', with: 'test-password', :match => :prefer_exact
     click_button I18n.t('shared.links.register')
     assert_equal user_registration_path(:locale=>I18n.locale), current_path
-    assert_selector "input#user_email+span", text: "is invalid"
+    assert_selector 'input#user_email+span', text: 'is invalid'
   end
 
   test 'user with too short password' do
     visit new_user_registration_path
     expect_fields_to_be_blank 1
-    fill_in "Email", with: "tester@example.tld"
-    fill_in "Password", with: "1", :match => :prefer_exact
-    fill_in "Password confirmation", with: "1", :match => :prefer_exact
+    fill_in 'Email', with: 'tester@example.tld'
+    fill_in 'Password', with: '1', :match => :prefer_exact
+    fill_in 'Password confirmation', with: '1', :match => :prefer_exact
     click_button I18n.t('shared.links.register')
     assert_equal user_registration_path(:locale=>I18n.locale), current_path
-    assert_selector "input#user_password+span", text: "is too short (minimum is 8 characters)"
+    assert_selector 'input#user_password+span', text: 'is too short (minimum is 8 characters)'
   end 
 
   private
