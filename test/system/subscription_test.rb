@@ -1,6 +1,6 @@
 require 'application_system_test_case'
 
-class UsersTest < ApplicationSystemTestCase
+class SubscriptionTest < ApplicationSystemTestCase
   
   # tests from root_path
   test 'creating a subscription from ROOT' do
