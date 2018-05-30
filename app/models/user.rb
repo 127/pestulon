@@ -18,8 +18,8 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable, :confirmable, 
          :lockable, :recoverable, :rememberable, :trackable, :validatable, 
          :omniauthable, :omniauth_providers => [:facebook, :twitter]
-  before_invitation_created :setup_role
-  before_invitation_created :setup_account
+  # before_invitation_created :setup_role
+  # before_invitation_created :setup_account
   #:facebook, :twitter, :linkedin]
 
   def role? role
