@@ -9,11 +9,11 @@ class PagesTest < ApplicationSystemTestCase
     
   end
   
-  test 'test innner paths with NO locales'
+  test 'test innner paths with NO locales' do
     
   end 
   
-  test 'test innner paths with locales'
+  test 'test innner paths with locales' do
     
   end 
 end

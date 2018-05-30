@@ -20,12 +20,12 @@ class InvitationTest < ApplicationSystemTestCase
     click_button I18n.t('shared.links.login')
     assert_text I18n.t('shared.labels.logout')
     
-    click_on I18n.t('shared.labels.invite')
+    click_link I18n.t('shared.labels.invite')
     assert_equal new_user_invitation_path(:locale=>I18n.locale), current_path
     assert_empty find_field('Email', type: 'email').value
     
-    fill_in 'Email',    with: 'b@b.ru'
-    click_on I18n.t('devise.invitations.new.submit_button')
+    fill_in 'Email',    with: 'not@existing.user'
+    click_button I18n.t('devise.invitations.new.submit_button')
     
   end
   

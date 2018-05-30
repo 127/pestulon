@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   acts_as_paranoid
-  before_validation :setup_role, on: :create
+  before_validation :setup_role,    on: :create
   before_validation :setup_account, on: :create
   
   TEMP_EMAIL_PREFIX = 'change@me'
@@ -18,6 +18,8 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable, :confirmable, 
          :lockable, :recoverable, :rememberable, :trackable, :validatable, 
          :omniauthable, :omniauth_providers => [:facebook, :twitter]
+  before_invitation_created :setup_role
+  before_invitation_created :setup_account
   #:facebook, :twitter, :linkedin]
 
   def role? role
@@ -73,20 +75,14 @@ class User < ApplicationRecord
   protected
   
     def setup_role
-      if self.role_ids.empty?
-        self.role_ids = [2]
-      end
+       self.role_ids = [3] if self.invited_by_id != nil && self.role_ids.empty?
+       self.role_ids = [2] if self.role_ids.empty?
     end
 
     # Default role is "Registered"
     def setup_account
+      self.account = self.invited_by.account if self.invited_by_id != nil && self.account_id == nil
       self.account = Account.create if self.account_id == nil
-      #TODO не работает скорее всего вынесено в контроллер
-      # if self.invited_by_id != nil
-      #   self.account = self.invited_by.account
-      # elsif self.account_id == nil
-      #   self.account = Account.create
-      # end
     end
     
 end
