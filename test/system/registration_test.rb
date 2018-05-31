@@ -41,27 +41,6 @@ class RegistrationTest < ApplicationSystemTestCase
     assert_equal new_user_session_path(:locale=>I18n.locale), current_path
     assert_text I18n.t('devise.confirmations.confirmed')
     expect_fields_to_be_blank
-
-    # @depracated 
-    # moved to aut_test.rb
-    # TODO think of this test is needed here
-    #
-    # # login
-    # fill_in 'Email',    with: 'not@existing.user'
-    # fill_in 'Password', with: 'test-password'
-    # click_button I18n.t('shared.links.login')
-    #
-    # assert_equal root_path(:locale=>I18n.locale), current_path
-    # assert_text I18n.t('shared.labels.logout')
-    # assert_selector  :xpath, ".//img[@alt='not@existing.user']"
-    # # noeflash message on Index change it if needed
-    # # assert_text I18n.t('devise.sessions.signed_in')
-    #
-    # click_link I18n.t('shared.labels.logout')
-    # assert_equal new_user_session_path(:locale=>I18n.locale), current_path
-    # assert_text I18n.t('shared.labels.registration')
-    # assert_text I18n.t('devise.sessions.signed_out')
-    # expect_fields_to_be_blank
   end
 
   test 'user with blank fields' do
