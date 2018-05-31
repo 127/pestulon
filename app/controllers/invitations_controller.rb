@@ -1,4 +1,3 @@
-# TODO fails to work. redo
 class InvitationsController < Devise::InvitationsController
   before_action :authenticate_user!
 
