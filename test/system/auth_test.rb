@@ -15,9 +15,7 @@ class AuthTest < ApplicationSystemTestCase
   end
   
   test 'user login logout with correct details' do
-    
     fill_form 'a@b.ru', 123321123, I18n.t('shared.labels.logout')
-
     assert_equal root_path(:locale=>I18n.locale), current_path
     assert_selector  :xpath, ".//img[@alt='a@b.ru']"
     # noeflash message on Index change it if needed
@@ -36,14 +34,11 @@ class AuthTest < ApplicationSystemTestCase
   end
   
   test 'locks account after 10 failed attempts' do
-    
     (1..8).each do |i|
       fill_form 'a@b.ru', 123321123+i, 'Invalid Email or password.'
     end
-    
     fill_form 'a@b.ru', 123321123+9,  I18n.t('devise.failure.last_attempt')
     fill_form 'a@b.ru', 123321123+10, I18n.t('devise.failure.locked')
-    
   end
   
   private
