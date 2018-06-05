@@ -19,16 +19,6 @@ class RegistrationTest < ApplicationSystemTestCase
     assert_equal new_user_session_path(:locale=>I18n.locale), current_path
     assert_text I18n.t('devise.registrations.signed_up_but_unconfirmed')
     expect_fields_to_be_blank
-    
-    # @depracated 
-    # moved to aut_test.rb
-    # TODO think of this test is needed here
-    # check unconfirmed login
-    # fill_in 'Email',    with: 'not@existing.user'
-    # fill_in 'Password', with: 'test-password'
-    # click_button I18n.t('shared.links.login')
-    # assert_text I18n.t('devise.failure.unconfirmed')
-    # expect_fields_to_be_blank
 
     # check approval link
     open_email('not@existing.user')
