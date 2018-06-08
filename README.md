@@ -43,7 +43,7 @@ First run:
 
 * DO NOT FORGET ABOUT CREATING NEW VALID CREDENTIALS ```bin/rails credentials:help```
 
-Testing
+Testing:
 
 * By default you can run system tests with headless Google Chrome ```bin/rails test:system``` Uncomment ```# driven_by :selenium, using: :chrome, screen_size: [1200, 600]``` at tests/application_system_test_case.rb   if you want to watch system tests running in a Google Chrome window.
 
