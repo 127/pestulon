@@ -39,12 +39,12 @@ First run:
 
 * At project dir ```bundle install && bin/rails db:setup```
 
-* Run server ```bin/rails``` and go to 127.0.0.1:3000  with your browser
+* Run server ```bin/rails s``` and go to 127.0.0.1:3000  with your browser
 
 * DO NOT FORGET ABOUT CREATING NEW VALID CREDENTIALS ```bin/rails credentials:help```
 
 Testing:
 
-* By default you can run system tests with headless Google Chrome ```bin/rails test:system``` Uncomment ```# driven_by :selenium, using: :chrome, screen_size: [1200, 600]``` at tests/application_system_test_case.rb   if you want to watch system tests running in a Google Chrome window.
+* By default you can run system tests with headless Google Chrome ```bin/rails test:system``` Check  ```tests/application_system_test_case.rb``` if you want to watch system tests running in a Google Chrome or Firefox window.
 
 * Regular tests are available too with ```bin/rails test```
