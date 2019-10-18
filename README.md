@@ -1,50 +1,24 @@
-# Pestulon
+# README
 
-Pestulon is a free opensource starting project for Rails 
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Abilities:
+Things you may want to cover:
 
-* Register, invite, oAuth users with devise an reCaptcha
+* Ruby version
 
-* Has static pages
+* System dependencies
 
-* Subscriptions
+* Configuration
 
-* Administrative panel
+* Database creation
 
-* Supports multiple languages
+* Database initialization
 
-* Contains system tests 
+* How to run the test suite
 
-* Supports postgresql
+* Services (job queues, cache servers, search engines, etc.)
 
-* Twitter Bootstrap 3 based Shield theme https://blacktie.co/shield-one-page-theme/
+* Deployment instructions
 
-* Heroku, Docker, Amazon Beanstalk friendly
-
-
-Requirements: 
-
-* Ruby 2.5.1
-
-* Rails 5.2.0
-
-* Postgres 10.4 for default configuration
-
-* Google Chrome for default testing configuration
-
-First run: 
-
-* Clone this repo 
-
-* At project dir ```bundle install && bin/rails db:setup```
-
-* Run server ```bin/rails s``` and go to 127.0.0.1:3000  with your browser
-
-* DO NOT FORGET ABOUT CREATING NEW VALID CREDENTIALS ```bin/rails credentials:help```
-
-Testing:
-
-* By default you can run system tests with headless Google Chrome ```bin/rails test:system``` Check  ```tests/application_system_test_case.rb``` if you want to watch system tests running in a Google Chrome or Firefox window.
-
-* Regular tests are available too with ```bin/rails test```
+* ...

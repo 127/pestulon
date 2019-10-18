@@ -4,11 +4,15 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-development:
+default: &default
   encoding: utf8
-  adapter: postgresql
+  adapter: postgresql 
+development:
+  <<: *default
   database: pestulon_development
 test:
-  encoding: utf8
-  adapter: postgresql
+  <<: *default
   database: pestulon_test
+production:
+  <<: *default
+  database: pestulon_production

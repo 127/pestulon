@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-# Use this hook to configure devise mailer, warden hooks and so forth.
+  # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
@@ -8,8 +6,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '54681802a35ed454c48479cb1a543fd7bc5a0815aeaff06b327aa8c8a0b33fa77a954da366bc977d3295e1b7e9b8509e57e39e7e2856a5dd38ece3c0841976d8'
-  
+  # config.secret_key = '835a0654cf037280d63790e3f3f296395c29b3d37c1603860551d216f9f8c358a3c34a9d672dc8280cf2da4a2ff2370f41c7ee8d2c00045193466d740c9da486'
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -18,7 +16,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'donotreply@pestulon.io'
+  config.mailer_sender = 'donotreply@altyn.io'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -114,7 +112,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '9643d7fa0496463dcbc65bd8b8df8ae650557262fd1a98d95d8d8f6af4923f937058eb25931a134cdbd082bcb2303f33fe29eaffea26b65bb584510949cc00e0'
+  # config.pepper = '133420e38c10c3759cc7787e4a2350f106175c275089bd45f7886816a2a9f12bfd2dc1ca4c538c2f859d5b71bfc66719424a5aac5069f9b82aca0ced76f14a34'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -122,12 +120,64 @@ Devise.setup do |config|
   # Send a notification email when the user's password is changed.
   # config.send_password_change_notification = false
 
+  # ==> Configuration for :invitable
+  # The period the generated invitation token is valid.
+  # After this period, the invited resource won't be able to accept the invitation.
+  # When invite_for is 0 (the default), the invitation won't expire.
+  # config.invite_for = 2.weeks
+
+  # Number of invitations users can send.
+  # - If invitation_limit is nil, there is no limit for invitations, users can
+  # send unlimited invitations, invitation_limit column is not used.
+  # - If invitation_limit is 0, users can't send invitations by default.
+  # - If invitation_limit n > 0, users can send n invitations.
+  # You can change invitation_limit column for some users so they can send more
+  # or less invitations, even with global invitation_limit = 0
+  # Default: nil
+  # config.invitation_limit = 5
+
+  # The key to be used to check existing users when sending an invitation
+  # and the regexp used to test it when validate_on_invite is not set.
+  # config.invite_key = { email: /\A[^@]+@[^@]+\z/ }
+  # config.invite_key = { email: /\A[^@]+@[^@]+\z/, username: nil }
+
+  # Ensure that invited record is valid.
+  # The invitation won't be sent if this check fails.
+  # Default: false
+  # config.validate_on_invite = true
+
+  # Resend invitation if user with invited status is invited again
+  # Default: true
+  # config.resend_invitation = false
+
+  # The class name of the inviting model. If this is nil,
+  # the #invited_by association is declared to be polymorphic.
+  # Default: nil
+  # config.invited_by_class_name = 'User'
+
+  # The foreign key to the inviting model (if invited_by_class_name is set)
+  # Default: :invited_by_id
+  # config.invited_by_foreign_key = :invited_by_id
+
+  # The column name used for counter_cache column. If this is nil,
+  # the #invited_by association is declared without counter_cache.
+  # Default: nil
+  # config.invited_by_counter_cache = :invitations_count
+
+  # Auto-login after the user accepts the invite. If this is false,
+  # the user will need to manually log in after accepting the invite.
+  # Default: true
+  # config.allow_insecure_sign_in_after_accept = false
+
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
   # confirming their account. For instance, if set to 2.days, the user will be
   # able to access the website for two days without confirming their account,
-  # access will be blocked just in the third day. Default is 0.days, meaning
-  # the user cannot access the website without confirming their account.
+  # access will be blocked just in the third day.
+  # You can also set it to nil, which will allow the user to access the website
+  # without confirming their account.
+  # Default is 0.days, meaning the user cannot access the website without
+  # confirming their account.
   # config.allow_unconfirmed_access_for = 2.days
 
   # A period that the user is allowed to confirm their account before their
@@ -179,27 +229,27 @@ Devise.setup do |config|
   # Defines which strategy will be used to lock an account.
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
-  # config.lock_strategy = :failed_attempts
+  config.lock_strategy = :failed_attempts
 
   # Defines which key will be used when locking and unlocking an account
-  # config.unlock_keys = [:email]
+  config.unlock_keys = [:email]
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
   # :time  = Re-enables login after a certain amount of time (see :unlock_in below)
   # :both  = Enables both strategies
   # :none  = No unlock strategy. You should handle unlocking by yourself.
-  # config.unlock_strategy = :both
+  config.unlock_strategy = :both
 
   # Number of authentication tries before locking an account if lock_strategy
   # is failed attempts.
   config.maximum_attempts = 10
 
   # Time interval to unlock the account if :time is enabled as unlock_strategy.
-  # config.unlock_in = 1.hour
+  config.unlock_in = 1.hour
 
   # Warn on the last attempt before the account is locked.
-  # config.last_attempt_warning = true
+  config.last_attempt_warning = true
 
   # ==> Configuration for :recoverable
   #
@@ -209,7 +259,7 @@ Devise.setup do |config|
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
-  config.reset_password_within = 6.hours
+  config.reset_password_within = 1.hours
 
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
@@ -220,7 +270,7 @@ Devise.setup do |config|
   # You can use :sha1, :sha512 or algorithms from others authentication tools as
   # :clearance_sha1, :authlogic_sha512 (then you should set stretches above to 20
   # for default behavior) and :restful_authentication_sha1 (then you should set
-  # stretches to 10, and copy REST_AUTH_' to pepper).
+  # stretches to 10, and copy REST_AUTH_SITE_KEY to pepper).
   #
   # Require the `devise-encryptable` gem when using anything other than bcrypt
   # config.encryptor = :sha512
@@ -229,7 +279,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -280,17 +330,27 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-  
-  config.validate_on_invite = true
-  
-  if Rails.env == 'development'
-    config.omniauth :facebook, "123", "456"
 
-  else
-    config.omniauth :facebook, "123", "456" #, callback_url: "CALLBACK_URL"
-    
-  end
-  config.omniauth :twitter,  "123", "456"
+  # ==> Turbolinks configuration
+  # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:
+  #
+  # ActiveSupport.on_load(:devise_failure_app) do
+  #   include Turbolinks::Controller
+  # end
 
-  # config.omniauth :linkedin, "consumer_key", "consumer_secret", :scope => 'r_fullprofile r_emailaddress r_network'
+  # ==> Configuration for :registerable
+
+  # When set to false, does not sign a user in automatically after their password is
+  # changed. Defaults to true, so a user is signed in automatically after changing a password.
+  # config.sign_in_after_change_password = true
+  # if Rails.env == 'development'
+  #   config.omniauth :facebook, "1074718892608952", "54de5dc95e729d6e38791b21571020e4"
+  #
+  # else
+  #   config.omniauth :facebook, "1073673192713522", "d14c747296ba66e41f6d7b74891567f7" #, callback_url: "CALLBACK_URL"
+  #
+  # end
+  # config.omniauth :twitter,  "r7gbJhAlJsrUBJ6QvrSceliiz", "u9l3taomuzmCSqkf5KQFTnrx0A6jnwqIosLCJGtyiT26cbHrD0"
+  #
+  # # config.omniauth :linkedin, "consumer_key", "consumer_secret", :scope => 'r_fullprofile r_emailaddress r_network'
 end
