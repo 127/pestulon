@@ -57,8 +57,6 @@ end
 # TODO: inject inside and remove
 gem 'bootstrap4-kaminari-views'
 
-gem 'date_validator'
-
 gem 'devise'
 gem 'devise_invitable'#, '~> 2.0.0'
 

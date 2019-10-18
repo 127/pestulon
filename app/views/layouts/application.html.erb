@@ -7,31 +7,35 @@
     <title><%= content_for?(:title) ? yield(:title) : t('title') %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css' />
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
 
-	<!--link rel="apple-touch-icon" sizes="57x57" href="/_i/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="/_i/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/_i/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="/_i/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="/_i/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="/_i/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/_i/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/_i/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/_i/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="/_i/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/_i/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/_i/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/_i/favicon-16x16.png"-->
-	<link rel="manifest" href="/_i//manifest.json">
-	<meta name="msapplication-config" content="/_i/browserconfig.xml" />
-	<meta name="msapplication-TileColor" content="#000000">
-	<meta name="msapplication-TileImage" content="/_i/ms-icon-144x144.png">
-	<meta name="theme-color" content="#000000">
-	
+  <!--link rel="apple-touch-icon" sizes="57x57" href="/_i/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/_i/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/_i/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/_i/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/_i/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/_i/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/_i/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/_i/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/_i/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/_i/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/_i/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/_i/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/_i/favicon-16x16.png"-->
+  <link rel="manifest" href="/_i//manifest.json">
+  <meta name="msapplication-config" content="/_i/browserconfig.xml" />
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="msapplication-TileImage" content="/_i/ms-icon-144x144.png">
+  <meta name="theme-color" content="#000000">
+  
   </head>
   <body>
 
@@ -40,86 +44,86 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
           <div class="container-fluid">
             <div class="navbar-header">
-    			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-    				<span class="sr-only">Toggle navigation</span>
-    				<span class="icon-bar"></span>
-    				<span class="icon-bar"></span>
-    				<span class="icon-bar"></span>
-    			</button>
-				<% ttl = content_for?(:title) ? yield(:title) : t('title') %>
-				<a class="navbar-brand" href="/<%= I18n.locale %>/">
-					Pestulon
-				</a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <% ttl = content_for?(:title) ? yield(:title) : t('title') %>
+        <a class="navbar-brand" href="/<%= I18n.locale %>/">
+          Pestulon
+        </a>
             </div>
             <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-	            <li><a href="#home" class="smoothScroll">Home</a></li>
-				<li> <a href="#about" class="smoothScroll"> About</a></li>
-				<li> <a href="#services" class="smoothScroll"> Services</a></li>
-				<li> <a href="#team" class="smoothScroll"> Team</a></li>
-				<li> <a href="#portfolio" class="smoothScroll"> Portfolio</a></li>
-				<li> <a href="#blog" class="smoothScroll"> Blog</a></li>
-				<li> <a href="#contact" class="smoothScroll"> Contact</a></li>
-				<% if user_signed_in? %>
+              <li><a href="#home" class="smoothScroll">Home</a></li>
+        <li> <a href="#about" class="smoothScroll"> About</a></li>
+        <li> <a href="#services" class="smoothScroll"> Services</a></li>
+        <li> <a href="#team" class="smoothScroll"> Team</a></li>
+        <li> <a href="#portfolio" class="smoothScroll"> Portfolio</a></li>
+        <li> <a href="#blog" class="smoothScroll"> Blog</a></li>
+        <li> <a href="#contact" class="smoothScroll"> Contact</a></li>
+        <% if user_signed_in? %>
 
-				<% end %>
+        <% end %>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-    			<% if user_signed_in? %>
-    			<% if current_user.role? :admin %>
-					<%= render 'admin/shared/menu' %>	
-    			<% end %>
-				<% if current_user.role? :owner %>
-				<li>
-					<%= link_to t('activerecord.models.account.one').mb_chars.titleize, account_index_path %>
-				</li>
-				<% end %>
-				<li<%= ' class="active"'.html_safe if controller.controller_name=='invitations'%>>
-					<%= link_to t('shared.labels.invite'), new_invitation_path(:user) %>
-				</li>
+          <% if user_signed_in? %>
+          <% if current_user.role? :admin %>
+          <%= render 'admin/shared/menu' %>  
+          <% end %>
+        <% if current_user.role? :owner %>
+        <li>
+          <%= link_to t('activerecord.models.account.one').mb_chars.titleize, account_index_path %>
+        </li>
+        <% end %>
+        <li<%= ' class="active"'.html_safe if controller.controller_name=='invitations'%>>
+          <%= link_to t('shared.labels.invite'), new_invitation_path(:user) %>
+        </li>
               <li>
                 <%= link_to image_tag(avatar_url(current_user.email), size: '20x20', alt: current_user.email, title:  current_user.email), edit_user_registration_path %>
               </li>
               <li>
                 <%= link_to t('shared.labels.logout'), destroy_user_session_path, :method => :delete %>
               </li>
-    			<% else %>
-				<li><a><%=  t 'shared.labels.login' %>:</a></li>
-    			<li<%= ' class="active"'.html_safe if controller.controller_name=='sessions'%>>
-					<%= link_to '', new_user_session_path,  :class=>'ion-ios-email-outline'  %>
-				</li>
-				<li><%= link_to '', user_twitter_omniauth_authorize_path,  :class=>'ion-social-twitter-outline' %></li>
-				<li><%= link_to '', user_facebook_omniauth_authorize_path, :class=>'ion-social-facebook-outline' %></li>
-    			<li<%= ' class="active"'.html_safe if controller.controller_name=='registrations'%>>
-					<%= link_to t('shared.labels.registration'), new_user_registration_path  %>
-				</li>
-    			<% end %>
+          <% else %>
+        <li><a><%=  t 'shared.labels.login' %>:</a></li>
+          <li<%= ' class="active"'.html_safe if controller.controller_name=='sessions'%>>
+          <%= link_to '', new_user_session_path,  :class=>'ion-ios-email-outline'  %>
+        </li>
+        <li><%= link_to '', user_twitter_omniauth_authorize_path,  :class=>'ion-social-twitter-outline' %></li>
+        <li><%= link_to '', user_facebook_omniauth_authorize_path, :class=>'ion-social-facebook-outline' %></li>
+          <li<%= ' class="active"'.html_safe if controller.controller_name=='registrations'%>>
+          <%= link_to t('shared.labels.registration'), new_user_registration_path  %>
+        </li>
+          <% end %>
             </ul>
             </div><!--/.nav-collapse -->
           </div>
         </div>
     </div>
 
-	<% if controller.controller_name == "pages" %>
-		<%= yield %>
-	<% else %>
-	<div class="wrapper wrapper-tall">
-		<div class="container">
-			<%= yield %>
-		</div>
-	</div>
-	<% end %>
+    <% if controller.controller_name == "pages" %>
+      <%= yield %>
+    <% else %>
+    <div class="wrapper wrapper-tall">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+    <% end %>
 
-
-		<div id="footerwrap">
-			<div class="container">
-				<h4>Created by <a href="http://blacktie.co">BlackTie.co</a> - Copyright 2014</h4>
-			</div>
-		</div>
-
-	<script>
-// google analytics
-	</script>
+    <div id="footerwrap">
+      <div class="container">
+        <h4>Created by <a href="http://blacktie.co">BlackTie.co</a> - Copyright 2014</h4>
+      </div>
+    </div>
+    <% if Rails.env.production? %>
+    <script>
+      // google analytics
+    </script>
+    <% end %>  
   </body>
 </html>
 <%# console %>
