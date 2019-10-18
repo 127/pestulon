@@ -62,6 +62,10 @@ gem 'date_validator'
 gem 'devise'
 gem 'devise_invitable'#, '~> 2.0.0'
 
+gem 'omniauth-facebook'
+# gem 'omniauth-twitter'
+# gem 'omniauth-linkedin'
+
 gem 'kaminari'
 gem 'paranoia', '~> 2.2'
 
