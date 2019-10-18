@@ -60,8 +60,8 @@ gem 'bootstrap4-kaminari-views'
 gem 'devise'
 gem 'devise_invitable'#, '~> 2.0.0'
 
-gem 'omniauth-facebook'
-# gem 'omniauth-twitter'
+gem 'omniauth-facebook' # use very carefuylly
+gem 'omniauth-twitter'
 # gem 'omniauth-linkedin'
 
 gem 'kaminari'
