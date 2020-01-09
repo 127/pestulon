@@ -1,10 +1,10 @@
 <div class="page-header">
-	<h1><%= t('simple_form.labels.user.confirmation.resend') %></h1>
+  <h1><%= t('simple_form.labels.user.confirmation.resend') %></h1>
 </div>
 
-<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :class => 'form-horizontal' }) do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => {:method => :post, :class => 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
-  <%= render partial: "devise/shared/flash_messages", flash: flash %> 
+  <%= render partial: "devise/shared/flash_messages", flash: flash %>
   <%= f.full_error :confirmation_token %>
   <%= f.input :email, :required => true, :autofocus => true %>
 

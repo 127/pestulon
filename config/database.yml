@@ -6,7 +6,7 @@
 #
 default: &default
   encoding: utf8
-  adapter: postgresql 
+  adapter: postgresql
 development:
   <<: *default
   database: pestulon_development

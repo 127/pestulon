@@ -1,13 +1,13 @@
 <div class="page-header">
-	<h1><%= t('shared.labels.login') %></h1>
+  <h1><%= t('shared.labels.login') %></h1>
 </div>
 
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
-	<%= render partial: "devise/shared/flash_messages", flash: flash %> 
-    <%= f.input :email, :required => false, :autofocus => true %>
-    <%= f.input :password, :required => false %>
-    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-    <%= f.button :submit, t('shared.links.login'), class: 'btn-default' %>
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= render partial: "devise/shared/flash_messages", flash: flash %>
+  <%= f.input :email, :required => false, :autofocus => true %>
+  <%= f.input :password, :required => false %>
+  <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+  <%= f.button :submit, t('shared.links.login'), class: 'btn-default' %>
 <% end %>
 
 <%= render partial: "devise/shared/agree", locals: {name: 'Login'} %>

@@ -4,32 +4,32 @@
 en:
   title: 'Pestulon'
   activerecord:
-    models: 
-        user: 
-          one: 'user'
-          other: 'users'
-        identity:
-          one: 'profile'
-          other: 'profiles'
-        role:
-          one: 'role'
-          other: 'roles'
-        subscription:
-          one: 'subscription'
-          other: 'subscriptions'
-        account:
-          one: 'account'
-          other: 'accounts'
+    models:
+      user:
+        one: 'user'
+        other: 'users'
+      identity:
+        one: 'profile'
+        other: 'profiles'
+      role:
+        one: 'role'
+        other: 'roles'
+      subscription:
+        one: 'subscription'
+        other: 'subscriptions'
+      account:
+        one: 'account'
+        other: 'accounts'
   date:
     labels:
-        year: 'Year'
-        month: 'Month'
-        week: 'Week'
-        day: 'Day'
-        last2weeks: '2 weeks'
-        last2months: '2 months'
+      year: 'Year'
+      month: 'Month'
+      week: 'Week'
+      day: 'Day'
+      last2weeks: '2 weeks'
+      last2months: '2 months'
   shared:
-    messages: 
+    messages:
       nodata: 'No data availible'
     labels:
       flow: 'Flow'

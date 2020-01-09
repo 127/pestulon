@@ -27,15 +27,15 @@ class Admin::UsersController < Admin::AdminController
   def create
     @user = User.new(user_params)
     respond_to do |format|
-         if @user.save
-           @user.confirm
-           format.html { redirect_to [:admin, @user], notice: 'Document was successfully created.' }
-           format.json { render action: 'show', status: :created, location: @user }
-         else
-           format.html { render action: 'new' }
-           format.json { render json: @user.errors, status: :unprocessable_entity }
-         end
-       end
+      if @user.save
+        @user.confirm
+        format.html { redirect_to [:admin, @user], notice: 'Document was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @user }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /users/1
@@ -53,8 +53,8 @@ class Admin::UsersController < Admin::AdminController
     end
   end
 
-    # DELETE /users/1
-    # DELETE /users/1.json
+  # DELETE /users/1
+  # DELETE /users/1.json
   def destroy
     @user.destroy
     respond_to do |format|
@@ -64,24 +64,24 @@ class Admin::UsersController < Admin::AdminController
   end
 
   private
-    
-    def set_user 
-      @user = User.find(params[:id])
-    end
-    
-    def check_role
-      @admin = false
-      current_user.roles.each do |role|
-        if role.name.to_s == 'admin'
-          @admin = true 
-          break
-        end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def check_role
+    @admin = false
+    current_user.roles.each do |role|
+      if role.name.to_s == 'admin'
+        @admin = true
+        break
       end
-      render 'shared/prohibited' if @admin == false
     end
-    
-    def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :account_id)
-    end
+    render 'shared/prohibited' if @admin == false
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :account_id)
+  end
 
 end

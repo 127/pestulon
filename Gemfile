@@ -58,7 +58,7 @@ end
 gem 'bootstrap4-kaminari-views'
 
 gem 'devise'
-gem 'devise_invitable'#, '~> 2.0.0'
+gem 'devise_invitable' #, '~> 2.0.0'
 
 gem 'omniauth-facebook' # use very carefuylly
 gem 'omniauth-twitter'

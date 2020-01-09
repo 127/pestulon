@@ -9,22 +9,22 @@ roles.each do |role|
 end
 
 unless Rails.env.production?
-  users     = ['admin@test.com', 'a@b.ru', 'b@b.ru', 'c@b.ru']
-  password  = '123321123'
-  
-  users.each.with_index  do |email, index|
+  users = ['admin@test.com', 'a@b.ru', 'b@b.ru', 'c@b.ru']
+  password = '123321123'
+
+  users.each.with_index do |email, index|
     user = User.new(
-      :email => email,
-      :password => password,
-      :password_confirmation => password,
-      :account_id => Account.create().id
+        :email => email,
+        :password => password,
+        :password_confirmation => password,
+        :account_id => Account.create().id
     )
-    user.role_ids = (index == 0) ? [1,2] : [2] 
+    user.role_ids = (index == 0) ? [1, 2] : [2]
     user.confirm
     user.save
-    
+
     Subscription.create :email => email, :name => index
-    
+
   end
 
 end

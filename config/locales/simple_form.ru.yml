@@ -14,39 +14,39 @@ ru:
       bill:
         category_id: 'Выберите категорию'
     hints:
-        defaults:
-        user:
-            edit:
-                password: 'оставьте пустым, если не собираетесь менять'
-                current_password: 'нам нужен ваш текущий пароль для подтверждения изменений'
+      defaults:
+      user:
+        edit:
+          password: 'оставьте пустым, если не собираетесь менять'
+          current_password: 'нам нужен ваш текущий пароль для подтверждения изменений'
     messages:
-        registration: 'Если вы хотите использовать аватар, то воспользуйтесь сервисом <a href="http://gravatar.com" target="gr">Gravatar</a> (откроется в новом окне). <br> Ваш email должен быть аналогичным указанному там.'
-        bill:
-          updated: 'Успешно обновлено'
-          created: 'Успешно создано'
+      registration: 'Если вы хотите использовать аватар, то воспользуйтесь сервисом <a href="http://gravatar.com" target="gr">Gravatar</a> (откроется в новом окне). <br> Ваш email должен быть аналогичным указанному там.'
+      bill:
+        updated: 'Успешно обновлено'
+        created: 'Успешно создано'
     labels:
-        defaults:
-            password: 'Пароль'
-            password_confirmation: 'Подтвердите пароль'
-            current_password: 'Текущий пароль'
-            remember_me: 'Запомнить меня'
-        user:
-            edit:
-                message: 'Ожидается подтверждение email: '
-                change: 'Изменить данные'
-                save: 'Сохранить'
-            confirmation:
-                resend: 'Повторная отправка письма для подтверждения'
-                send: 'Отправить'
-            unlock:
-                resend: 'Повторная отправка письма для разблокирования'
-                send: 'Разблокировать'
-            recovery:
-                title: 'Восстановление пароля'
-                recover: 'Восстановить'
-                forgotten: 'Forgot your password?'
-                instructions: 'Send me reset password instructions'
-                change: 'Change your password'
-                new: 'New password'
-                confirm: 'Confirm your new password'
-                submit: 'Change my password'
+      defaults:
+        password: 'Пароль'
+        password_confirmation: 'Подтвердите пароль'
+        current_password: 'Текущий пароль'
+        remember_me: 'Запомнить меня'
+      user:
+        edit:
+          message: 'Ожидается подтверждение email: '
+          change: 'Изменить данные'
+          save: 'Сохранить'
+        confirmation:
+          resend: 'Повторная отправка письма для подтверждения'
+          send: 'Отправить'
+        unlock:
+          resend: 'Повторная отправка письма для разблокирования'
+          send: 'Разблокировать'
+        recovery:
+          title: 'Восстановление пароля'
+          recover: 'Восстановить'
+          forgotten: 'Forgot your password?'
+          instructions: 'Send me reset password instructions'
+          change: 'Change your password'
+          new: 'New password'
+          confirm: 'Confirm your new password'
+          submit: 'Change my password'

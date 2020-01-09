@@ -1,4 +1,4 @@
-class Admin::SubscriptionsController < Admin::AdminController 
+class Admin::SubscriptionsController < Admin::AdminController
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
 
   # GET /subscriptions
@@ -62,13 +62,14 @@ class Admin::SubscriptionsController < Admin::AdminController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_subscription
-      @subscription = Subscription.find params[:id] 
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def subscription_params
-      params.require(:subscription).permit(:email, :name, :status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_subscription
+    @subscription = Subscription.find params[:id]
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def subscription_params
+    params.require(:subscription).permit(:email, :name, :status)
+  end
 end

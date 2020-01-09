@@ -4,10 +4,11 @@ class SubscriptionsController < ApplicationController
   def new
     @subscription = Subscription.new
   end
-  
+
   def show
     @subscription = Subscription.find params[:id]
   end
+
   # POST /subscriptions
   # POST /subscriptions.json
   def create
@@ -23,10 +24,11 @@ class SubscriptionsController < ApplicationController
       end
     end
   end
-  
+
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def subscription_params
-      params.require(:subscription).permit(:email, :name)
-    end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def subscription_params
+    params.require(:subscription).permit(:email, :name)
+  end
 end

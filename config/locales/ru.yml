@@ -1,60 +1,60 @@
 ru:
   title: 'Pestulon'
   activerecord:
-    models: 
-        user: 
-          one: 'пользователь'
-          other: 'пользователи'
-        identity:
-          one: 'профиль'
-          other: 'профиль'
-        role:
-          one: 'роль'
-          other: 'роли'
-        subscription:
-          one: 'подписка'
-          other: 'подписки'
-        account:
-          one: 'аккаунт'
-          other: 'аккаунты'
+    models:
+      user:
+        one: 'пользователь'
+        other: 'пользователи'
+      identity:
+        one: 'профиль'
+        other: 'профиль'
+      role:
+        one: 'роль'
+        other: 'роли'
+      subscription:
+        one: 'подписка'
+        other: 'подписки'
+      account:
+        one: 'аккаунт'
+        other: 'аккаунты'
     attributes:
-        attribute_commons: &commons
-            created_at: 'Создано'
-            updated_at: 'Обновлено'
-        role:
-            <<: *commons
-            name: 'Имя'
-            users: 'Пользователи'
-        subscription:
-            <<: *commons
-            name: 'Имя'
-            status: 'Статус'
-        account:
-            <<: *commons
-            role: 'Роль'
-            name: 'Имя'
-            users: 'Пользователи'
-            number: 'Счет'
-        user:
-            <<: *commons
-            account: 'Счет'
-            name: 'Имя'
-            role: 'Пользователи'
-            account: 'Счет'
-            password: 'Пароль'
-            password_confirmation: 'Подтверждение пароля'
-            current_password: 'Текущий пароль'
-            remember_me: 'Запомнить меня'
-            sign_in_count: 'Количество входов'
-            current_sign_in_at: 'Последний вход'
-            current_sign_in_ip: 'Последний ip'
-            last_sign_in_at: 'Текущий вход'
-            last_sign_in_ip: 'Текущий ip'
-            confirmed_at: 'Подтвержден'
-            confirmation_sent_at: 'Подтверждение отправлено'
-            unconfirmed_email: 'Неподтвержденное мыло'
-            failed_attempts: 'Попыток авторизации'
-            locked_at: 'Замок'
+      attribute_commons: &commons
+        created_at: 'Создано'
+        updated_at: 'Обновлено'
+      role:
+        <<: *commons
+        name: 'Имя'
+        users: 'Пользователи'
+      subscription:
+        <<: *commons
+        name: 'Имя'
+        status: 'Статус'
+      account:
+        <<: *commons
+        role: 'Роль'
+        name: 'Имя'
+        users: 'Пользователи'
+        number: 'Счет'
+      user:
+        <<: *commons
+        account: 'Счет'
+        name: 'Имя'
+        role: 'Пользователи'
+        account: 'Счет'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        current_password: 'Текущий пароль'
+        remember_me: 'Запомнить меня'
+        sign_in_count: 'Количество входов'
+        current_sign_in_at: 'Последний вход'
+        current_sign_in_ip: 'Последний ip'
+        last_sign_in_at: 'Текущий вход'
+        last_sign_in_ip: 'Текущий ip'
+        confirmed_at: 'Подтвержден'
+        confirmation_sent_at: 'Подтверждение отправлено'
+        unconfirmed_email: 'Неподтвержденное мыло'
+        failed_attempts: 'Попыток авторизации'
+        locked_at: 'Замок'
   date:
     formats:
       default: "%d.%m.%Y"
@@ -63,12 +63,12 @@ ru:
       date: "%Y-%m-%d"
       md: "%m-%d"
     labels:
-        year: 'Год'
-        month: 'Месяц'
-        week: 'Неделя'
-        day: 'День'
-        last2weeks: '2 недели'
-        last2months: '2 месяца'
+      year: 'Год'
+      month: 'Месяц'
+      week: 'Неделя'
+      day: 'День'
+      last2weeks: '2 недели'
+      last2months: '2 месяца'
   time:
     formats:
       default: "%d %m %Y, %H:%M:%S %z"
@@ -95,7 +95,7 @@ ru:
       next: "Вперед &rsaquo;"
       truncate: "..."
   shared:
-    messages: 
+    messages:
       nodata: 'За указанный период нет данных'
     labels:
       flow: 'Поток'

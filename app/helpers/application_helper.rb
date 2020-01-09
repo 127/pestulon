@@ -5,19 +5,20 @@ module ApplicationHelper
     gravatar_id = Digest::MD5::hexdigest(email).downcase
     "https://gravatar.com/avatar/#{gravatar_id}?s=20&d=#{default_url}" #{CGI.escape(default_url)}"
   end
+
   def bootstrap_class_for(flash_type)
     case flash_type
-      when "success"
-        "alert-success"   # Green
-      when "error"
-      when "recaptcha_error"
-        "alert-danger"    # Red
-      when "alert"
-        "alert-warning"   # Yellow
-      when "notice"
-        "alert-info"      # Blue
-      else
-        flash_type.to_s
+    when "success"
+      "alert-success" # Green
+    when "error"
+    when "recaptcha_error"
+      "alert-danger" # Red
+    when "alert"
+      "alert-warning" # Yellow
+    when "notice"
+      "alert-info" # Blue
+    else
+      flash_type.to_s
     end
   end
 end

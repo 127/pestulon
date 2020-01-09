@@ -1,17 +1,17 @@
 <div class="page-header">
-	<h1><%= t 'shared.labels.registration' %></h1>
+  <h1><%= t 'shared.labels.registration' %></h1>
 </div>
 
 <p><%= raw t('simple_form.messages.registration') %></p>
 <!-- <p class="alert alert-danger">The services and all downloadable software are distributed on an 'as is' basis without warranties of any kind, either express or implied, including, without limitation, warranties of title or implied warranties of merchantability or fitness for a particular purpose. Registering you hereby acknowledge that use of the services is at your sole risk.</p> -->
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
-	<%= f.error_notification %>
-	<%= render partial: "devise/shared/flash_messages", flash: flash %>
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :password, :required => true %>
-    <%= f.input :password_confirmation, :required => true %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+  <%= render partial: "devise/shared/flash_messages", flash: flash %>
+  <%= f.input :email, :required => true, :autofocus => true %>
+  <%= f.input :password, :required => true %>
+  <%= f.input :password_confirmation, :required => true %>
   <div style="margin-left: 180px;"><%= recaptcha_tags %></div>
-    <%= f.button :submit, t('shared.links.register'), class: 'btn-default' %>
+  <%= f.button :submit, t('shared.links.register'), class: 'btn-default' %>
 <% end %>
 
 <%= render partial: "devise/shared/agree", locals: {name: 'Register'} %>
