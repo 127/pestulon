@@ -48,12 +48,11 @@
         <%= link_to t('shared.labels.logout'), destroy_user_session_path, :method => :delete, :class => 'nav-link' %>
       </li>
       <% else %>
-      <li class="nav-item"><a class="nav-link"><%= t 'shared.labels.login' %>:</a></li>
       <li class="nav-item<%= ' active'.html_safe if controller.controller_name == 'sessions' %>">
-        <%= link_to 'a', new_user_session_path, :class => 'nav-link' %>
+        <%= link_to t('shared.labels.login'), new_user_session_path, :class => 'nav-link' %>
       </li>
-      <li class="nav-item"><%= link_to 'a', user_twitter_omniauth_authorize_path, :class => 'nav-link' %></li>
-      <li class="nav-item"><%= link_to 'a', user_facebook_omniauth_authorize_path, :class => 'nav-link' %></li>
+<!--      <li class="nav-item"><%#= link_to 'a', user_twitter_omniauth_authorize_path, :class => 'nav-link' %></li>-->
+<!--      <li class="nav-item"><%#= link_to 'a', user_facebook_omniauth_authorize_path, :class => 'nav-link' %></li>-->
       <li class="nav-item<%= ' active'.html_safe if controller.controller_name == 'registrations' %>">
         <%= link_to t('shared.labels.registration'), new_user_registration_path, :class => 'nav-link' %>
       </li>
